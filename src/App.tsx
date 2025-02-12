@@ -1,29 +1,40 @@
-import { useState } from 'react'
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-import orbe from './assets/orbe.gif'
-import blueOrbe from './assets/blueOrbe.gif'
-import voice from './assets/voice.gif'
-import './App.css'
+import Home from "./Pages/Home";
+import Register from "./Pages/Register";
+import Login from "./Pages/Login";
+import Dashboard from "./Pages/Dashboard";
+import Wrapper from "./Pages/Wrappe";
+
+import "./App.css";
 
 function App() {
-
-
   return (
-    <>
-    <img src={voice} alt="Vite logo" />
-    <div>    
-    </div>
+    <BrowserRouter>
+      <Routes>
+        {/* home */}
+        <Route path="/" element={<Home />} />
 
-    <div className='login-container'>
-    <img src={orbe} alt="Vite logo" className="logo"/>
-    <img src={blueOrbe} alt="Vite logo" className="logo react"/>
-    </div>
+        {/* register */}
+        <Route path="/register" element={<Register />} />
 
+        {/* login */}
+        <Route path="/login" element={<Login />} />
 
+        {/* dashboard */}
+        <Route
+          path="/dashboard"
+          element={
+            <Wrapper>
+              <Dashboard />
+            </Wrapper>
+          }
+        />
 
-
-    </>
-  )
+        {/* profile */}
+      </Routes>
+    </BrowserRouter>
+  );
 }
 
-export default App
+export default App;

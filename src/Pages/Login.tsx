@@ -121,7 +121,7 @@ function Login() {
               >
                 Sign in
               </button>
-              <p>{message}</p>
+              <p className="mt-5 text-center text-sm/6 text-red-500">{message}</p>
             </div>
           </form>
 

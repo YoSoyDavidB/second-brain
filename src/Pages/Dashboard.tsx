@@ -1,21 +1,23 @@
-import supabase from '../helper/supabaseClient';
-import { useNavigate } from 'react-router-dom';
+import Calendar from '../components/Calendar.tsx';
+import Drawer from '../components/drawer.tsx';
+import Header from '../components/header.tsx';
 
 function Dashboard() {
-  const navigate = useNavigate();
-
-  const signOut = async () => {
-    const { error } = await supabase.auth.signOut();
-    if(error) throw error;
-    navigate('/login');
-  }
+  
   return (
     <div>
-      <h1>Dashboard</h1>
+      <Header />
+      <Drawer/>
+      <div className="flex">
+        <div className="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8 bg-gray-800 w-2/3">
+          content
+        </div>
+        <div className="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8 bg-gray-900 w-1/3">
+          <Calendar />
+        </div>
+      </div>
 
-      <h3>Hello, you are logged in.</h3>
-
-      <button onClick={signOut}>Sign out</button>
+      
     </div>
   );
 }

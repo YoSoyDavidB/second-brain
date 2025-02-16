@@ -1,6 +1,8 @@
 import React from 'react';
 import { format, startOfMonth, endOfMonth, startOfWeek, endOfWeek, addDays, isSameMonth, isSameDay } from 'date-fns';
 import { addMonths as addMonthsFn } from 'date-fns';
+import { ArrowBigLeft, ArrowBigRight} from 'lucide-react';
+
 
 const Calendar: React.FC = () => {
   const [currentMonth, setCurrentMonth] = React.useState(new Date());
@@ -10,11 +12,11 @@ const Calendar: React.FC = () => {
     const dateFormat = "MMMM yyyy";
 
     return (
-      <div className="flex justify-between items-center py-2">
+      <div className="flex justify-between items-center py-1">
         <div className="text-lg font-bold">{format(currentMonth, dateFormat)}</div>
         <div>
-          <button onClick={prevMonth} className="px-2 py-1 mx-1 bg-gray-600 rounded">Prev</button>
-          <button onClick={nextMonth} className="px-2 py-1 mx-1 bg-gray-600 rounded">Next</button>
+          <button onClick={prevMonth} className="px-2 py-1 mx-1 bg-gray-600 rounded"><ArrowBigLeft className="h-4 w-4" /></button>
+          <button onClick={nextMonth} className="px-2 py-1 mx-1 bg-gray-600 rounded"><ArrowBigRight className="h-4 w-4"/></button>
         </div>
       </div>
     );
@@ -52,13 +54,13 @@ const Calendar: React.FC = () => {
         formattedDate = format(day, "d");
         const cloneDay = day;
         days.push(
-          <div
-            className={`text-center py-2 ${!isSameMonth(day, monthStart) ? "text-gray-400" : ""} ${isSameDay(day, selectedDate) ? "bg-blue-500 text-white" : ""}`}
+            <div
+            className={`text-center py-1 ${!isSameMonth(day, monthStart) ? "text-gray-400" : ""} ${isSameDay(day, selectedDate) ? "bg-[#646cffaa] text-white" : ""}`}
             key={day.toString()}
             onClick={() => onDateClick(cloneDay)}
-          >
+            >
             {formattedDate}
-          </div>
+            </div>
         );
         day = addDays(day, 1);
       }

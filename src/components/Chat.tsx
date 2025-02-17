@@ -18,7 +18,7 @@ const Chat: React.FC = () => {
   const [isLoading, setIsLoading] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
-  const webhookUrl = 'https://n8n.davidbuitrago.dev/webhook-test/second-brain-chat';
+  const webhookUrl = 'https://n8n.davidbuitrago.dev/webhook/second-brain-chat';
   const sessionId = 'dtIsRzqmr2H9tl';
 
   const scrollToBottom = () => {
@@ -52,7 +52,8 @@ const Chat: React.FC = () => {
         {
           headers: {
             'Content-Type': 'application/json',
-            'Authorization': 'Bearer EfHv9lGQS3RdPu4QdRlKoQTrM2kTeSqA7hWRcA5o38vavlPQthdtIsRzqmr2H9tl'
+            'Authorization': 'Bearer EfHv9lGQS3RdPu4QdRlKoQTrM2kTeSqA7hWRcA5o38vavlPQthdtIsRzqmr2H9tl',
+            'X-API-KEY': 'your-api-key-here'
           }
         }
       );
@@ -107,6 +108,13 @@ const Chat: React.FC = () => {
               </div>
             </div>
           ))}
+          {isLoading && (
+            <div className="flex justify-start">
+              <div className="max-w-[70%] p-3 rounded-lg bg-gray-100 text-gray-800">
+                <div className="dot-typing"></div>
+              </div>
+            </div>
+          )}
           <div ref={messagesEndRef} />
         </div>
         

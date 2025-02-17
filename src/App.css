@@ -30,3 +30,46 @@
   background-position: center; /* Centers the image */
   background-image: url('./assets/voice.gif'); /* The URL of the image */
 }
+
+.dot-typing {
+  position: relative;
+  width: 4px;
+  height: 4px;
+  margin: 0 auto;
+}
+
+.dot-typing::before,
+.dot-typing::after {
+  content: '';
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background-color: #333;
+  color: #333;
+  animation: dot-typing 1s infinite linear;
+}
+
+.dot-typing::before {
+  left: -6px;
+  animation-delay: 0s;
+}
+
+.dot-typing::after {
+  left: 6px;
+  animation-delay: 0.5s;
+}
+
+@keyframes dot-typing {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}

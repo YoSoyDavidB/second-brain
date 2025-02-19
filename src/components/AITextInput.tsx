@@ -17,7 +17,7 @@ const AITextInput = () => {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           model: "mistral",
-          prompt: `Complete the following phrase: "${input}"`,
+          prompt: `Complete the following phrase (with short phrase): "${input}"`,
           stream: true, // Enables streaming
           max_tokens: 20,
         }),

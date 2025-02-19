@@ -19,7 +19,7 @@ const Chat: React.FC = () => {
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
   const webhookUrl = 'https://n8n.davidbuitrago.dev/webhook/second-brain-chat';
-  const sessionId = 'dtIsRzqmr2H9tl';
+  const sessionId = 'dtIsRasdfdfr2H9tlf';
 
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });

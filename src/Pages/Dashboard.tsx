@@ -2,7 +2,7 @@ import AITextInput from '../components/AITextInput.tsx';
 import Calendar from '../components/Calendar.tsx';
 import Chat from '../components/Chat.tsx';
 import Header from '../components/header.tsx';
-import MarkdownEditor from '../components/MarkdownEditor.tsx';
+import Tiptap from '../components/TiptapEditor/Tiptap.tsx';
 
 function Dashboard() {
   
@@ -12,8 +12,8 @@ function Dashboard() {
       
       <div className="flex">
         <div className="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8 bg-gray-800 w-3/4">
-          <MarkdownEditor />
-          <AITextInput />
+          <Tiptap />
+          {/* <AITextInput /> */}
         </div>
         <div className="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8 bg-gray-900 w-1/4">
           <Calendar />

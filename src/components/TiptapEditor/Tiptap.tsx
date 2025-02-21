@@ -20,6 +20,7 @@ import Table from '@tiptap/extension-table'
 import TableCell from '@tiptap/extension-table-cell'
 import TableHeader from '@tiptap/extension-table-header'
 import TableRow from '@tiptap/extension-table-row'
+import Image from '@tiptap/extension-image'
 import './styles.css'
 import MenuItems from './MenuItems'
 import FloatingMenuItems from './FloatingMenuItems'
@@ -45,6 +46,7 @@ const Tiptap = () => {
       OrderedList,
       ListItem,
       Underline,
+      Image,
       Table.configure({
         resizable: true,
       }),

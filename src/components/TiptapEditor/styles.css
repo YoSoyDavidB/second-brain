@@ -27,8 +27,7 @@
 }
 
 .floating-menu {
-  margin-left: -50px;
-  display: block !important;
+  margin-top: 50px;
 }
 
 /*make proserMirror hightger than its parent*/

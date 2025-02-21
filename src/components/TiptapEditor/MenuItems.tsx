@@ -1,4 +1,11 @@
-import { Bold, Code, Highlighter, Italic, Strikethrough } from "lucide-react";
+import {
+  Bold,
+  Code,
+  Highlighter,
+  Italic,
+  Strikethrough,
+  Underline,
+} from "lucide-react";
 
 import { Editor } from "@tiptap/core";
 
@@ -35,7 +42,12 @@ const MenuItems = ({ editor }: { editor: Editor }) => {
       >
         <Highlighter className="h-3 w-3" />
       </div>
-      
+      <div
+        onClick={() => editor.chain().focus().toggleUnderline().run()}
+        className={editor.isActive("underline") ? "is-active" : "menu-item"}
+      >
+        <Underline className="h-3 w-3" />
+      </div>
     </div>
   );
 };

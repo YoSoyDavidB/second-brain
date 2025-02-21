@@ -15,8 +15,14 @@ import Placeholder from '@tiptap/extension-placeholder'
 import BulletList from '@tiptap/extension-bullet-list'
 import OrderedList from '@tiptap/extension-ordered-list'
 import ListItem from '@tiptap/extension-list-item'
+import Underline from '@tiptap/extension-underline'
+import Table from '@tiptap/extension-table'
+import TableCell from '@tiptap/extension-table-cell'
+import TableHeader from '@tiptap/extension-table-header'
+import TableRow from '@tiptap/extension-table-row'
 import './styles.css'
 import MenuItems from './MenuItems'
+import FloatingMenuItems from './FloatingMenuItems'
 
 const lowlight = createLowlight(all)
 
@@ -38,6 +44,13 @@ const Tiptap = () => {
       BulletList,
       OrderedList,
       ListItem,
+      Underline,
+      Table.configure({
+        resizable: true,
+      }),
+      TableRow,
+      TableHeader,
+      TableCell,
       Placeholder.configure({
         placeholder: 'Log entry title …'
       }),
@@ -51,57 +64,11 @@ const Tiptap = () => {
   })
   return (
     <div className="editor bg-black text-white h-96">
-      <div className="button-group">
-          <button
-            onClick={() => editor?.chain().focus().toggleBulletList().run()}
-            className={editor?.isActive('bulletList') ? 'is-active' : ''}
-          >
-            Toggle bullet list
-          </button>
-          <button
-            onClick={() => editor?.chain().focus().splitListItem('listItem').run()}
-            disabled={!editor?.can().splitListItem('listItem')}
-          >
-            Split list item
-          </button>
-          <button
-            onClick={() => editor?.chain().focus().sinkListItem('listItem').run()}
-            disabled={!editor?.can().sinkListItem('listItem')}
-          >
-            Sink list item
-          </button>
-          
-        </div>
       {editor && <BubbleMenu editor={editor} tippyOptions={{ duration: 100 }}>
       <MenuItems editor={editor} />
       </BubbleMenu>}
       {editor && <FloatingMenu editor={editor} tippyOptions={{ duration: 100 }}>
-        <div data-testid="floating-menu" className="floating-menu">
-          <button
-            onClick={() => editor.chain().focus().toggleHeading({ level: 1 }).run()}
-            className={editor.isActive('heading', { level: 1 }) ? 'is-active' : ''}
-          >
-            H1
-          </button>
-          <button
-            onClick={() => editor.chain().focus().toggleHeading({ level: 2 }).run()}
-            className={editor.isActive('heading', { level: 2 }) ? 'is-active' : ''}
-          >
-            H2
-          </button>
-          <button
-            onClick={() => editor.chain().focus().toggleBulletList().run()}
-            className={editor.isActive('bulletList') ? 'is-active' : ''}
-          >
-            Bullet list
-          </button>
-          <button
-            onClick={() => editor.chain().focus().toggleOrderedList().run()}
-            className={editor.isActive('orderedList') ? 'is-active' : ''}
-          >
-            Toggle ordered list
-          </button>
-        </div>
+        <FloatingMenuItems editor={editor} />
       </FloatingMenu>}
       <EditorContent editor={editor} className='pl-10'/>
     </div>

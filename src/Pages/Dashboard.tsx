@@ -1,9 +1,8 @@
 import  MDXEditor  from '../components/MXEditor/MXEditor.tsx';
-import AITextInput from '../components/AITextInput.tsx';
+/* import AITextInput from '../components/AITextInput.tsx'; */
 import Calendar from '../components/Calendar.tsx';
 import Chat from '../components/Chat.tsx';
 import Header from '../components/header.tsx';
-import Tiptap from '../components/TiptapEditor/Tiptap.tsx';
 
 function Dashboard() {
   

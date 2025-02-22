@@ -1,3 +1,117 @@
+@import url('@radix-ui/colors/tomato-dark.css');
+@import url('@radix-ui/colors/mauve-dark.css');
+
 .toolbar{
-    background: #393d88aa;
+    background: #212353aa;
+}
+
+/* Remove default ordered list markers */
+.editor-content ol {
+    list-style: none !important;
+    padding-left: 0;
+  }
+  
+  /* Custom ordered list marker */
+  .editor-content ol > li::marker {
+    content: counter(list-item) ". ";
+    color: var(--baseText);
+    
+  }
+  
+  /* Ensure nested ordered lists work properly */
+  .editor-content ol ol > li::marker {
+    content: counter(list-item, lower-alpha) ". ";
+    color: var(--baseText);
+  }
+  
+  .editor-content ol ol ol > li::marker {
+    content: counter(list-item, lower-roman) ". ";
+    color: var(--baseText);
+  }
+
+  /* Remove default bullets from all unordered lists */
+.editor-content ul {
+    list-style: none!important;
+    padding-left: 0;
+  }
+  
+  /* Custom bullets for different levels */
+  .editor-content ul > li::marker {
+    content: "• ";
+    color: var(--baseText);
+  }
+  
+  .editor-content ul ul > li::marker {
+    content: "◦ ";
+    color: var(--baseText);
+  }
+  
+  .editor-content ul ul ul > li::marker {
+    content: "▪ ";
+    color: var(--baseText);
+  }
+
+  .editor-content ul ul,
+.editor-content ol ol {
+  padding-left: 1.5rem;
+}
+
+.editor-content ul ul ul,
+.editor-content ol ol ol {
+  padding-left: 2rem;
+}
+
+/*********************************************
+ * Custom blockquote styles
+ *********************************************/
+
+
+.dark-editor {
+  --accentBase: var(--tomato-1);
+  --accentBgSubtle: var(--tomato-2);
+  --accentBg: var(--tomato-3);
+  --accentBgHover: var(--tomato-4);
+  --accentBgActive: var(--tomato-5);
+  --accentLine: var(--tomato-6);
+  --accentBorder: var(--tomato-7);
+  --accentBorderHover: var(--tomato-8);
+  --accentSolid: var(--tomato-9);
+  --accentSolidHover: var(--tomato-10);
+  --accentText: var(--tomato-11);
+  --accentTextContrast: var(--tomato-12);
+
+  --baseBase: var(--mauve-1);
+  --baseBgSubtle: var(--mauve-2);
+  --baseBg: var(--mauve-3);
+  --baseBgHover: var(--mauve-4);
+  --baseBgActive: var(--mauve-5);
+  --baseLine: var(--mauve-6);
+  /*--baseBorder: var(--mauve-7);*/
+  --baseBorderHover: var(--mauve-8);
+  --baseSolid: var(--mauve-9);
+  --baseSolidHover: var(--mauve-10);
+
+  --baseTextContrast: var(--mauve-12);
+
+  --admonitionTipBg: var(--cyan4);
+  /*--admonitionTipBorder: var(--cyan8);*/
+  
+  --admonitionInfoBg: var(--grass4);
+  /*--admonitionInfoBorder: var(--grass8);*/
+
+  --admonitionCautionBg: var(--amber4);
+  /*--admonitionCautionBorder: var(--amber8);*/
+
+  --admonitionDangerBg: var(--red4);
+  /*--admonitionDangerBorder: var(--red8);*/
+
+  --admonitionNoteBg: var(--mauve-4);
+  /*--admonitionNoteBorder: var(--mauve-8);*/
+
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+
+  color: var(--baseText);
+  --basePageBg: rgb(38, 37, 37);
+  background: var(--basePageBg);
 }
